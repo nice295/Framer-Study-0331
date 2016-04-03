@@ -168,7 +168,7 @@
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
 	 * @license
-	 * lodash 3.10.1 (Custom Build) <https://lodash.com/>
+	 * lodash 3.10.0 (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modern -d -o ./index.js`
 	 * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
 	 * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -181,7 +181,7 @@
 	  var undefined;
 	
 	  /** Used as the semantic version number. */
-	  var VERSION = '3.10.1';
+	  var VERSION = '3.10.0';
 	
 	  /** Used to compose bitmasks for wrapper metadata. */
 	  var BIND_FLAG = 1,
@@ -12805,12 +12805,11 @@
 	};
 	
 	Utils.stringify = function(obj) {
-	  var error;
 	  try {
 	    if (_.isObject(obj)) {
 	      return JSON.stringify(obj);
 	    }
-	  } catch (error) {
+	  } catch (_error) {
 	    "";
 	  }
 	  if (obj === null) {
@@ -13222,13 +13221,13 @@
 	};
 	
 	Utils.domLoadDataSync = function(path) {
-	  var e, error, handleError, ref, request;
+	  var e, handleError, ref, request;
 	  request = new XMLHttpRequest();
 	  request.open("GET", path, false);
 	  try {
 	    request.send(null);
-	  } catch (error) {
-	    e = error;
+	  } catch (_error) {
+	    e = _error;
 	    console.debug("XMLHttpRequest.error", e);
 	  }
 	  handleError = function() {
@@ -21648,7 +21647,7 @@
 	    this._contentInset = options.contentInset || Utils.rectZero();
 	    this.setContentLayer(new Layer);
 	    this._applyOptionsAndDefaults(options);
-	    this._enableMouseWheelHandling(options.mouseWheelEnabled);
+	    this._enableMouseWheelHandling();
 	    if (options.hasOwnProperty("wrap")) {
 	      wrapComponent(this, options.wrap);
 	    }
@@ -23094,9 +23093,7 @@
 	    if (ref = this._deviceType, indexOf.call(BuiltInDevices, ref) < 0) {
 	      return name;
 	    }
-	    //khlee
-        //resourceUrl = "//resources.framerjs.com/static/DeviceResources";
-        resourceUrl = "./framer/images";  
+	    resourceUrl = "//resources.framerjs.com/static/DeviceResources";
 	    if (Utils.isFramerStudio() && window.FramerStudioInfo) {
 	      if (this._device.minStudioVersion && Utils.framerStudioVersion() >= this._device.minStudioVersion || !this._device.minStudioVersion) {
 	        if (this._device.maxStudioVersion && Utils.framerStudioVersion() <= this._device.maxStudioVersion || !this._device.maxStudioVersion) {
@@ -23297,7 +23294,7 @@
 	  };
 	
 	  DeviceComponent.prototype.isPortrait = function() {
-	    return Math.abs(this.orientation) === 0;
+	    return Math.abs(this._orientation) === 0;
 	  };
 	
 	  DeviceComponent.prototype.isLandscape = function() {
@@ -23395,8 +23392,7 @@
 	
 	  DeviceComponent.prototype.handImageUrl = function(hand) {
 	    var resourceUrl;
-	    //khell resourceUrl = "//resources.framerjs.com/static/DeviceResources";
-        resourceUrl = "./framer/images";
+	    resourceUrl = "//resources.framerjs.com/static/DeviceResources";
 	    if (Utils.isFramerStudio() && window.FramerStudioInfo && Utils.framerStudioVersion() >= newDeviceMinVersion) {
 	      resourceUrl = window.FramerStudioInfo.deviceImagesUrl;
 	    }
@@ -25394,13 +25390,13 @@
 /* 53 */
 /***/ function(module, exports) {
 
-	exports.date = 1456402466;
+	exports.date = 1456230683;
 	
 	exports.branch = "master";
 	
-	exports.hash = "32b26ed";
+	exports.hash = "4f9f713";
 	
-	exports.build = 1591;
+	exports.build = 1587;
 	
 	exports.version = exports.branch + "/" + exports.hash;
 
